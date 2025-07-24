@@ -1,0 +1,29 @@
+user:
+  isAdmin: true
+  name: TestUser
+  age: 20
+  profession: TestProfession
+  skills:
+    - name: Reading
+      level: 5
+      description: |
+        multiline 
+        description
+    - name: Writing
+      level: 1
+      description: |
+        multiline 
+        description 2
+  address:
+    country: Country
+    city: city1
+    street: street1
+    building: 1
+    flat: 2
+  animals:
+    - name: dog
+      breed: JRT
+      canMeow: false
+    - name: cat
+      breed: none
+      canMeow: true
