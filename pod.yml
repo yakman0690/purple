@@ -1,16 +1,23 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: conv-app
-  labels:
-    components: convapp
+  name: conv-app-deployment
 spec:
-  containers:
-    - name: short-app
-      image: antonlarichev/conv-app:1.2
-      ports:
-        - containerPort: 80
-      resources:
-        limits:
-          memory: "128Mi"
-          cpu: "500m"
+  replicas: 1
+  selector:
+    matchLabels:
+      components: convapp
+  template:
+    metadata:
+      labels:
+        components: convapp
+    spec:
+      containers:
+        - name: conv-app
+          image: antonlarichev/conv-app:1.2
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
